@@ -46,6 +46,8 @@ install:
   - # override
 
 script:
+ - singularity pull --name hello-world.simg shub://vsoch/hello-world
+ - ls
  - singularity shell perceptionDev.sif
  - cd mrover-workspace
  - ./jarvis build -a 
