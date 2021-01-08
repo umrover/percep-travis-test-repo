@@ -46,7 +46,6 @@ install:
   - # override
 
 script:
- - singularity pull --name hello-world.simg shub://vsoch/hello-world
- - singularity exec hello-world.simg ls /
- # - singularity shell perceptionDev.sif
- # - ./jarvis build -a
+ #- singularity pull --name hello-world.simg shub://vsoch/hello-world
+ #- singularity exec hello-world.simg ls /
+ - singularity exec perceptionDev.sif ./jarvis build -a
