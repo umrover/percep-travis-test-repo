@@ -48,4 +48,6 @@ install:
 script:
  #- singularity pull --name hello-world.simg shub://vsoch/hello-world
  #- singularity exec hello-world.simg ls /
+ - ls
+ - singularity exec perceptionDev.sif ls /
  - singularity exec perceptionDev.sif ./jarvis build -a .
