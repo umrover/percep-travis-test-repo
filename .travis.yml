@@ -41,7 +41,7 @@ matrix:
 before_install:
   - sudo chmod u+x .travis/*.sh
   - /bin/bash .travis/setup.sh
-  - /bin/bash .travis/download.sh
+  #- /bin/bash .travis/download.sh
 
 install:
   - # override
@@ -49,7 +49,8 @@ install:
 script:
  #- singularity pull --name hello-world.simg shub://vsoch/hello-world
  #- singularity exec hello-world.simg ls /
- #- wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=10-CFtvKabLEEUe7j7kCCaL2_RQ53gOm3' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=10-CFtvKabLEEUe7j7kCCaL2_RQ53gOm3" -O perceptionDev.sif && rm -rf /tmp/cookies.txt
+ - wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=10-CFtvKabLEEUe7j7kCCaL2_RQ53gOm3' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=10-CFtvKabLEEUe7j7kCCaL2_RQ53gOm3" -O perceptionDev.sif && rm -rf /tmp/cookies.txt
  - ls
+ - sudo chmod +x perceptionDev.sif
  - singularity exec perceptionDev.sif ls /
  - singularity exec perceptionDev.sif ./jarvis build -a .
