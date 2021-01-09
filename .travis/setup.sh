@@ -34,6 +34,4 @@ cd singularity-$VERSION
 make
 sudo make install
 
-
-
-#git clone https://github.com/umrover/mrover-workspace.git
+git clone https://github.com/umrover/perception-dev-container.git
