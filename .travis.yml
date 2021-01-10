@@ -3,11 +3,7 @@ os: linux
 
 language: go
 
-go:
-    - "1.13"
-
 python:
-    - "2.7"
     - "3.5"
 
 addons:
@@ -35,7 +31,6 @@ sudo: required
 
 matrix:
   include:
-    - python: "2.6"
     - python: "3.5"
 
 before_install:
