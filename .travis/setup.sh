@@ -26,7 +26,7 @@ echo "sregistry Version:"
 #sudo make -C ./builddir install
 
 # Install Singularity
-VERSION=2.5.2
+VERSION=3.6.4
 wget https://github.com/singularityware/singularity/releases/download/$VERSION/singularity-$VERSION.tar.gz
 tar xvf singularity-$VERSION.tar.gz
 cd singularity-$VERSION
