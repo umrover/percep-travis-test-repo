@@ -12,7 +12,13 @@ sregistry version
 echo "sregistry Version:"
 
 # Install Singularity
-export VERSION=3.7.0 &&
+export VERSION=3.7.0 && \
     wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
     tar -xzf singularity-${VERSION}.tar.gz && \
     cd singularity
+    
+    ./mconfig && \
+    make -C ./builddir && \
+    sudo make -C ./builddir install
+    
+    . /usr/local/etc/bash_completion.d/singularity
