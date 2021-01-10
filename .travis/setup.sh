@@ -26,13 +26,10 @@ echo "sregistry Version:"
 #sudo make -C ./builddir install
 
 # Install Singularity
-VERSION=3.6.4
-wget https://github.com/singularityware/singularity/releases/download/$VERSION/singularity-$VERSION.tar.gz
-tar xvf singularity-$VERSION.tar.gz
-cd singularity-$VERSION
-./configure --prefix=/usr/local
-make
-sudo make install
+export VERSION=3.7.0 &&
+    wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
+    tar -xzf singularity-${VERSION}.tar.gz && \
+    cd singularity
 
 #Download Image From AWS
 
