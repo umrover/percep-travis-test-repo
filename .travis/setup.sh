@@ -34,4 +34,7 @@ cd singularity-$VERSION
 make
 sudo make install
 
-git clone https://github.com/umrover/perception-dev-container.git
+#Download Image From AWS
+curl https://umrovercontainer.s3.us-east-2.amazonaws.com/perceptionDev.zip --output perceptionDev.zip
+unzip perceptionDev.zip
+#git clone https://github.com/umrover/perception-dev-container.git
