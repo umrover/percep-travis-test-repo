@@ -35,10 +35,5 @@ make
 sudo make install
 
 #Download Image From AWS
-cd ~
-pwd
-curl https://umrovercontainer.s3.us-east-2.amazonaws.com/perceptionDev.zip --output perceptionDev.zip
-pwd
-unzip perceptionDev.zip
-pwd
+
 #git clone https://github.com/umrover/perception-dev-container.git
