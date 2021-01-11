@@ -43,15 +43,13 @@ before_install:
   - /bin/bash .travis/setup.sh
 
 install:
-  - true
+  - true #Needed to prevent default install action "go get -t -v ./... whicih fails"
 
 script:
  - pwd
- - curl https://umrovercontainer.s3.us-east-2.amazonaws.com/perceptionDev.zip --output perceptionDev.zip
- - pwd
- - unzip perceptionDev.zip
+ - curl https://umrovercontainer.s3.us-east-2.amazonaws.com/perceptionDev1.1.sif --output perceptionDev1.1.sif
  - pwd
  - ls
  - pwd
  - singularity exec perceptionDev1.1.sif ls ../
- - singularity exec perceptionDev1.1.sif .././jarvis build -a .
+ - singularity exec perceptionDev1.1.sif ./jarvis build -a .
