@@ -43,7 +43,7 @@ before_install:
   - /bin/bash .travis/setup.sh
 
 install:
-  - # override
+  - true
 
 script:
  - singularity pull --name hello-world.simg shub://vsoch/hello-world
