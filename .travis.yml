@@ -1,3 +1,11 @@
+
+os: linux 
+
+language: go
+
+go:
+  - tip
+
 sudo: required
 
 before_install:

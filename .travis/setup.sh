@@ -1,20 +1,13 @@
-#!/bin/bash -ex
+#!/bin/bash
 
-sudo sed -i -e 's/^Defaults\tsecure_path.*$//' /etc/sudoers
-
-# Check Python
-
-echo "Python Version:"
-python --version
-pip install --user sregistry[all]
-sregistry version
-
-echo "sregistry Version:"
-#Install Go
-wget https://golang.org/dl/go1.15.6.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf go1.15.6.linux-amd64.tar.gz
-sudo export PATH=$PATH:/usr/local/go/bin
+go build -o bin/myawesomeapp -i .
 go version
+
+#Install Go
+#wget https://golang.org/dl/go1.15.6.linux-amd64.tar.gz
+#sudo tar -C /usr/local -xzf go1.15.6.linux-amd64.tar.gz
+#sudo export PATH=$PATH:/usr/local/go/bin
+#
 
 
 # Install Singularity
