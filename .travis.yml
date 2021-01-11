@@ -39,13 +39,14 @@ matrix:
     - python: "3.5"
 
 before_install:
-  - sudo chmod u+x .travis/*.sh
-  - /bin/bash .travis/setup.sh
+  #- sudo chmod u+x .travis/*.sh
+ # - /bin/bash .travis/setup.sh
 
 install:
   - true #Needed to prevent default install action "go get -t -v ./... whicih fails"
 
 script:
+ - cd /dev
  - pwd
  - curl https://umrovercontainer.s3.us-east-2.amazonaws.com/perceptionDev1.1.sif --output perceptionDev1.1.sif
  - pwd
