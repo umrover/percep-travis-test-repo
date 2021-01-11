@@ -4,7 +4,7 @@ os: linux
 language: go
 
 go:
-    - "1.11"
+    - "1.15"
 
 python:
     - "2.7"
