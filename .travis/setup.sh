@@ -37,7 +37,7 @@ sudo apt-get update && sudo apt-get install -y \
     cryptsetup-bin
 
 # Install Singularity
-export VERSION=3.7.0 && \
+export VERSION=3.5.2 && \
     wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
     tar -xzf singularity-${VERSION}.tar.gz && \
     cd singularity
