@@ -9,7 +9,8 @@ go:
 sudo: required
 
 before_install:
-- go vet ./...
+- touch Makefile
+- echo "target: ;" >> Makefile
 - sudo chmod u+x .travis/*.sh
 - /bin/bash .travis/setup.sh
 
