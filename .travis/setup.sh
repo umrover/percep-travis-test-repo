@@ -12,8 +12,8 @@ sregistry version
 echo "sregistry Version:"
 #Install Go
 wget https://golang.org/dl/go1.15.6.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.15.6.linux-amd64.tar.gz
-export PATH=$PATH:/usr/local/go/bin
+sudo tar -C /usr/local -xzf go1.15.6.linux-amd64.tar.gz
+sudo export PATH=$PATH:/usr/local/go/bin
 go version
 
 
