@@ -24,15 +24,27 @@ echo "sregistry Version:"
 #./mconfig -v -p /usr/local
 #make -j `nproc 2>/dev/null || echo 1` -C ./builddir all
 #sudo make -C ./builddir install
+# Install Dependencies
+sudo apt-get update && sudo apt-get install -y \
+    build-essential \
+    uuid-dev \
+    libgpgme-dev \
+    squashfs-tools \
+    libseccomp-dev \
+    wget \
+    pkg-config \
+    git \
+    cryptsetup-bin
 
 # Install Singularity
-VERSION=3.7.0
-wget https://github.com/hpcng/singularity/releases/download/v3.7.0/singularity-3.7.0.tar.gz
-tar xvf singularity-$VERSION.tar.gz
-cd singularity-$VERSION
-./configure --prefix=/usr/local
-make
-sudo make install
+export VERSION=3.7.0 && \
+    wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
+    tar -xzf singularity-${VERSION}.tar.gz && \
+    cd singularity
+    
+    ./mconfig && \
+    make -C ./builddir && \
+    sudo make -C ./builddir install
 
 #wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=10-CFtvKabLEEUe7j7kCCaL2_RQ53gOm3' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=10-CFtvKabLEEUe7j7kCCaL2_RQ53gOm3" -O perceptionDev.sif && rm -rf /tmp/cookies.txt
 
