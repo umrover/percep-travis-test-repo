@@ -2,9 +2,16 @@ sudo: required
 services:
 - docker
 script:
+- curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+- unzip awscliv2.zip
+- sudo ./aws/install
+- aws configure set aws_access_key_id AKIASSUYCN3WJ6IJ6BVY
+- aws configure set aws_secret_access_key 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
+- aws configure set default.region us-east-2
 - pwd
 - ls
-- docker pull public.ecr.aws/v1p0o8k3/umrover:latest
+- docker login -u AWS -p $(aws ecr get-login-password) https://$(aws sts get-caller-identity --query 'Account' --output text).dkr.ecr.us-east-2.amazonaws.com
+- docker pull AKIASSUYCN3WJ6IJ6BVY.ecr.aws/v1p0o8k3/umrover:latest
 - ls
 - pwd
 - docker run --rm -it -v $(pwd):/root -v /dev/tty:/dev/ttyUSB0 -v /dev/null:/run/udev:ro -v /dev/tty:/dev/i2c-0 -v /dev/tty:/dev/i2c-1 -v /dev/tty:/dev/i2c-2
