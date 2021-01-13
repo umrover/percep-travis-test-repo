@@ -2,8 +2,12 @@ sudo: required
 services:
 - docker
 script:
+- pwd
+- ls
 - curl https://umrovercontainer.s3.us-east-2.amazonaws.com/mrover.tar --output mrover.tar
 - docker import mrover.tar mrover:latest
+- ls
+- pwd
 - docker run --rm -it -v $(pwd):/root -v /dev/tty:/dev/ttyUSB0 -v /dev/null:/run/udev:ro -v /dev/tty:/dev/i2c-0 -v /dev/tty:/dev/i2c-1 -v /dev/tty:/dev/i2c-2
   mrover jarvis build -a .
 - docker run --rm -it -v $(pwd):/root -v /dev/tty:/dev/ttyUSB0 -v /dev/null:/run/udev:ro -v /dev/tty:/dev/i2c-0 -v /dev/tty:/dev/i2c-1 -v /dev/tty:/dev/i2c-2
