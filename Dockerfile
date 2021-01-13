@@ -1,27 +1,7 @@
 FROM nvidia/cuda:10.0-devel-ubuntu18.04
 
 MAINTAINER Justin Beemer <jubeemer@umich.edu>
-
-ENV ANSIBLE_VERSION 2.9.4
-
-COPY ansible /tmp/ansible
-
-RUN set -x && \
-    echo ">> Adding build-dependencies..." && \
-    sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
-    apt-get update && \
-    apt-get -y upgrade && \
-    apt-get install -y build-essential \
-    software-properties-common \
-    apt-transport-https \
-    git \
-    wget \
-    && apt-add-repository ppa:ansible/ansible && \
-    apt-get update && \
-    apt-get install -y ansible && \
-    echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
-
-ENV DEBIAN_FRONTEND noninteractive
+MAINTAINER Matt Martin <mmartin4972@gmail.com>
 
 # Install OpenCV 3.2
 RUN apt-get update -y && \
@@ -66,6 +46,27 @@ RUN apt-get update -y && \
     chmod +x ZED_SDK_Linux_Ubuntu18.run ; ./ZED_SDK_Linux_Ubuntu18.run silent && \
     rm ZED_SDK_Linux_Ubuntu18.run && \
     rm -rf /var/lib/apt/lists/*
+
+ENV ANSIBLE_VERSION 2.9.4
+
+COPY ansible /tmp/ansible
+
+RUN set -x && \
+    echo ">> Adding build-dependencies..." && \
+    sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get -y upgrade && \
+    apt-get install -y build-essential \
+    software-properties-common \
+    apt-transport-https \
+    git \
+    wget \
+    && apt-add-repository ppa:ansible/ansible && \
+    apt-get update && \
+    apt-get install -y ansible && \
+    echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
+
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN ansible-playbook -i "localhost," -c local /tmp/ansible/devbox.yml
 
